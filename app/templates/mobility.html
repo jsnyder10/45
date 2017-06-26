@@ -1,0 +1,45 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome to Mobility</h1>
+    {% if g.user.mobility_admin %}
+    <div class="well">
+        <form class="form-horizontal" method="post" name="edit">
+            <a href="{{ url_for('mobility_query') }}" class="btn btn-default">Mobility Query</a>
+            <a href="{{ url_for('mobility_edit_user') }}" class="btn btn-default">Mobility Edit User</a>
+            <a href="{{ url_for('mobility_import_html') }}" class="btn btn-default">Mobility Import HTML</a>
+            <a href="{{ url_for('mobility_cbt_manager') }}" class="btn btn-default">Mobility CBT Manager</a>
+            <a href="{{ url_for('mobility_backup') }}" class="btn btn-default">Mobility Backup Beta</a>
+    	</form>
+    </div>
+    {% endif %}
+    {% include 'flash.html' %}
+    {% block mobility %}{% endblock %}
+    {% if user %}
+    <div>
+    <h3>Your Mobility Items</h3>
+	    <table class="table table-bordered">
+		    <thead>
+		    	<tr>
+		    		{% for i in user.__table__.columns %}
+		    		<th>{{ i.name }}</th>
+		    		{% endfor %}
+		    	</tr>
+		    </thead>
+		    <tbody>
+			    <tr>
+			    	{% for i in user.__table__.columns %}
+	                    {% if i.type|string == 'DATETIME' %}
+	                        {% if user.is_expired(i.name, now) %}<td bgcolor="red">{{ user[i.name] }}</td>
+	                        {% else %}<td bgcolor="green">{{ user[i.name] }}</td>{% endif %}
+	                    {% else %}
+	                    <td>{{ user[i.name] }}</td>
+	                    {% endif %}
+			    	{% endfor %}
+			    </tr>
+			</tbody>
+		</table>
+	</div>
+	{% endif %}
+{% endblock %}

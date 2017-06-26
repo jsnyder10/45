@@ -1,0 +1,18 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ _('Welcome to Manpower, %(username)s!', username=g.user.username) }}</h1>
+    {% if g.user.manpower_admin %}
+    <div class="well">
+         <form class="form-horizontal" action="" method="post" name="edit">
+            <a href="{{ url_for('manpower_query') }}" class="btn btn-default">Query All Users</a>
+            <a href="{{ url_for('manpower_add_users') }}" class="btn btn-default">Add Users</a>
+            <a href="{{ url_for('manpower_edit_users') }}" class="btn btn-default">Edit Users</a>
+    	</form>
+    </div>
+    {% endif %}
+    {% include 'flash.html' %}
+    
+    {% block manpower %}{% endblock %}
+{% endblock %}

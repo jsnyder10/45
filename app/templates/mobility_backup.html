@@ -1,0 +1,18 @@
+{% extends "mobility.html" %}
+
+{% block mobility %}
+	<div class="well">
+		<form class="form-horizontal" method="post" action="">
+	        <div class="control-group">
+        		<input type="submit" name="submit" value="SaveBackup">
+        		<input type="submit" name="submit" value="RestoreFromBackup">
+        	</div>
+
+<h1>Browse for xlsx files here</h1>
+<div class="well"
+	<form class="form-horizontal" action ="{{ url_for('uploader') }}" method = "POST" enctype = "multipart/form-data">
+		<input type = "file" name = "file" />
+		<input type = "submit"/>
+	</form>
+</div>
+{% endblock %}

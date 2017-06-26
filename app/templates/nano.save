@@ -1,0 +1,13 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ _('Welcome to Mobility, %(username)s!', username=g.user.username) }}</h1>
+    {% include 'flash.html' %}
+    <div class="well">
+        <form class="form-horizontal" action="" method="post" name="edit">
+            <a href="{{ url_for('mobility_query') }}" class="btn btn-default">Mobility Query</a>
+            <a href="{{ url_for('mobility_add_users') }}" class="btn btn-default">Add Users</a>
+    	</form>
+    </div>
+{% endblock %}

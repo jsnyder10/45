@@ -1,0 +1,20 @@
+{% extends "mobility.html" %}
+
+{% block mobility %}
+	<div class="well">
+		<form class="form-horizontal" action="" method="post" name="edit">
+	        <div class="control-group">
+        		<input class="btn btn-primary" type="submit" name="submit" value="Update">
+        	</div>
+			<table class="table-responsive">
+			{% for head in header %}
+				<tr>
+					<th>{{ head.name }}</th>
+					<td><input autocomplete="off" autofocus placeholder="{{ head.args }}" name="{{ head.name }}" type="{{ head.type|string }}"/></td>
+				</tr>
+			{% endfor %}
+			</table> 
+			Format words wanted @ words to disclude
+		</form>
+	</div>
+{% endblock %}

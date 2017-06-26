@@ -1,0 +1,26 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    {% include 'flash.html' %}
+    <form method="post" name="login">
+    {{ form.hidden_tag() }}
+        <fieldset>
+            <div class="form-group">
+                {{ form.username(class="form-control", placeholder="User Name") }}
+                {% for error in form.username.errors %}
+                    <span class="help-inline">[{{ error }}]</span><br>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.password(class="form-control", placeholder="Password") }}
+                {% for error in form.password.errors %}
+                    <span class="help-inline">[{{ error }}]</span><br>
+                {% endfor %}
+            </div>
+        <div class="form-group">
+            <button class="btn btn-default" type="submit" value=Login>Log In</button>
+        </div>
+        </fieldset>
+    </form>
+{% endblock %}

@@ -1,0 +1,22 @@
+<!-- extend base layout -->
+{% extends "manpower.html" %}
+
+{% block manpower %}
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+            {% for head in header %}
+                <th>{{ head.name }}</th>
+            {% endfor %}
+            </thead>
+            {% for user in users %}
+            <tr>
+                    {% for c in header %}
+                    <td>{{ user[c.name] }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table> 
+    </div>
+{% endblock %}
+  

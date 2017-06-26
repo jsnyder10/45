@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--My styles sheet-->
+    <link href="{{ url_for('.static', filename='styles.css') }}" rel="stylesheet"/>
+    <!-- Bootstrap style sheet -->
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/bootstrap.min.css') }}">
+    <!--My Scripts-->
+    <script src="{{ url_for('.static', filename='scripts.js') }}"></script>
+    <!--jquery-->
+    <script src="{{ url_for('.static', filename='js/jquery.js') }}"></script>
+    <!-- bootstrap java scripts-->
+    <script src="{{ url_for('.static', filename='js/bootstrap.min.js') }}"></script>
+    <!-- Moment.min-->
+    <script src="{{ url_for('.static', filename='js/moment.min.js') }}"></script>
+
+  {% if title %}
+  <title>45 RS: {{ title }}</title>
+  {% else %}
+  <title>45 RS</title>
+  {% endif %}
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+              <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="{{ url_for('index') }}">45 RS Home</a>
+          </div>
+          <div class="collapse navbar-collapse" id="navbar">
+            {% if current_user.is_authenticated %}
+            <ul class="nav navbar-nav">
+              <li><a href="{{ url_for('manpower') }}">{{ _('Manpower') }}</a></li>
+              <li><a href="{{ url_for('mobility') }}">{{ _('Mobility') }}</a></li>
+              <li><a href="{{ url_for('user', username=g.user.username) }}">{{ _('Your Profile') }}</a></li>
+              <li><a href="{{ url_for('logout') }}">{{ _('Logout') }}</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <form class="navbar-search pull-right" action="{{ url_for('search') }}" method="post" name="search">{{ g.search_form.hidden_tag() }}{{ g.search_form.search(size=20, placeholder=_('Search'), class="search-query")}}</form>
+            </ul>
+            {% else %}
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="{{ url_for('login') }}">Log In</a></li>
+            </ul>
+            {% endif %}
+          </div>
+        </div>
+      </nav>
+      <main>
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </body>
+</html>
+

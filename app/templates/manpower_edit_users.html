@@ -1,0 +1,30 @@
+<!-- extend base layout -->
+{% extends "manpower.html" %}
+
+{% block manpower %}
+{% from "_formhelpers.html" import render_field %}
+	<div class="well">
+		<form class="form-horizontal" action="{{ url_for('manpower_edit_users') }}" method="post" name="edit">
+	        <div class="control-group">
+        		<input class="btn btn-primary" type="submit" name="submitb" value="Update User">
+        	</div>
+        	<div class="control-group">
+				<select name="user" onchange="this.form.submit()">
+					{% for user in users %}<option value={{ user }}>{{ user }}</option>{% endfor %}
+				</select>
+			</div>
+			<table class="table-responsive">
+			{% for head in header %}
+				<tr>
+					<th>{{ head.name }}</th>
+					{% if head.type|string == 'DATETIME' %}
+					<td><input autocomplete="off" autofocus placeholder="{{ data[head.name] }}" name="{{ head.name }}" onfocus="(this.type='date')" type="text"/></td>
+					{% else %}
+					<td><input autocomplete="off" autofocus placeholder="{{ data[head.name] }}" name="{{ head.name }}" type="{{ head.type|string }}"/></td>
+					{% endif %}
+				</tr>
+			{% endfor %}
+			</table> 
+		</form>
+	</div>
+{% endblock %}

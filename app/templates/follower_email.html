@@ -1,0 +1,13 @@
+<p>Dear {{ user.username }},</p>
+<p>{{ _('%(username)s is now a follower.', username='<a href="' + url_for("user", username=follower.username, _external=True) + '">' + follower.username + '</a>') }}</p>
+<table>
+    <tr valign="top">
+        <td><img src="{{ follower.avatar(50) }}"></td>
+        <td>
+            <a href="{{ url_for('user', username=follower.username, _external=True)}}">{{ follower.username }}</a><br />
+            {{ follower.about_me }}
+        </td>
+    </tr>
+</table>
+<p>{{ _('Regards,') }}</p>
+<p>{{ _('The <code>microblog</code> admin') }}</p>

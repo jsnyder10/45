@@ -1,0 +1,27 @@
+<!-- extend base layout -->
+{% extends "mobility.html" %}
+
+{% block mobility %}
+    {% include 'flash.html' %}
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+            {% for head in header %}
+                <th>{{ head.name }}</th>
+            {% endfor %}
+            </thead>
+            {% for user in mobility %}
+            <tr>
+                {% for head in header %}
+                    {% if head.type|string == 'DATETIME' %}
+                        {% if user.is_expired(head.name, now) %}<td bgcolor="red">{{ user[head.name] }}</td>
+                        {% else %}<td bgcolor="green">{{ user[head.name] }}</td>{% endif %}
+                    {% else %}
+                    <td>{{ user[head.name] }}</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table> 
+    </div>
+{% endblock %}

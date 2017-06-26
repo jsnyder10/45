@@ -1,0 +1,9 @@
+{{ _('Dear %(username)s,', username=user.username) }}
+
+{{ _('%(username)s is now a follower. Click on the following link to visit %(username)s\'s profile page:', username=follower.username) }}
+
+{{ url_for("user", username=follower.username, _external=True) }}
+
+{{ _('Regards,') }}
+
+{{ _('The microblog admin') }}

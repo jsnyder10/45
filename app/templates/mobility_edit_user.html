@@ -1,0 +1,29 @@
+<!-- extend base layout -->
+{% extends "mobility.html" %}
+
+{% block mobility %}
+	<div class="well">
+		<form class="form-horizontal" method="post" action="{{ url_for('mobility_edit_user') }}">
+	        <div class="control-group">
+        		<input class="btn btn-primary" type="submit" name="submitb" value="Update">
+        	</div>
+        	<div class="control-group">
+				<select name="user" onchange="this.form.submit()" value="SelectUser">
+					{% for user in users %}<option value={{ user }}>{{ user }}</option>{% endfor %}
+				</select>
+			</div>
+			<table class="table-responsive">
+			{% for head in header %}
+				<tr>
+					<th>{{ head.name }}</th>
+					{% if head.type|string == 'DATETIME' %}
+					<td><input autocomplete="off" autofocus placeholder="{{ data[head.name] }}" name="{{ head.name }}" onfocus="(this.type='date')" type="text"/></td>
+					{% else %}
+					<td><input autocomplete="off" autofocus placeholder="{{ data[head.name] }}" name="{{ head.name }}" type="{{ head.type|string }}"/></td>
+					{% endif %}
+				</tr>
+			{% endfor %}
+			</table> 
+		</form>
+	</div>
+{% endblock %}
