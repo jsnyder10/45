@@ -215,7 +215,6 @@ def manpower_add_users():
     if request.method == 'POST' and form.validate():
         if User.query.filter_by(username=form.username.data).first() == None:
             user = User(username=form.username.data.lower())
-            print(user)
             user.email = form.email.data
             user.hash_password(form.password.data)
             db.session.add(user)
