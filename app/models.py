@@ -17,7 +17,7 @@ if sys.version_info >= (3, 0):
 else:
     enable_search = WHOOSH_ENABLED
     if enable_search:
-        import flask_whooshalchemy
+        import flask_whooshalchemy as whooshalchemy
 
 
 followers = db.Table(
@@ -84,7 +84,6 @@ class User(db.Model):
         except NameError:
             return str(self.id)  # python 3
 
-    #md5(self.username had md5(self.email
     def avatar(self, size):
         return 'http://www.gravatar.com/avatar/%s?d=mm&s=%d' % \
             (md5(self.username.encode('utf-8')).hexdigest(), size)
@@ -111,19 +110,6 @@ class User(db.Model):
 
     def __repr__(self):  # pragma: no cover
         return '<user> %r' % (self.username)
-
-
-class Post(db.Model):
-    __searchable__ = ['body']
-
-    id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    language = db.Column(db.String(5))
-
-    def __repr__(self):  # pragma: no cover
-        return '<Post %r>' % (self.body)
 
 
 class Mobility(db.Model):
@@ -252,5 +238,19 @@ class History(db.Model):
     
     def __repr__(self):  # pragma: no cover
         return '<History %r>' % (self.name)
-#if enable_search:
-#    whooshalchemy.whoosh_index(app, Post)
+
+
+class Post(db.Model):
+    __searchable__ = ['body']
+
+    id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.String(140))
+    timestamp = db.Column(db.DateTime)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    language = db.Column(db.String(5))
+
+    def __repr__(self):  # pragma: no cover
+        return '<Post %r>' % (self.body)
+
+if enable_search:
+    whooshalchemy.whoosh_index(app, Post)
