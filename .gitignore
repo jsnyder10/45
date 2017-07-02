@@ -1,6 +1,6 @@
 *.pyc
 *.pyo
-apps.db
+app.db
 search.db
 flask
 *.mo
