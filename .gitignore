@@ -3,4 +3,7 @@
 app.db
 search.db
 flask
+backup
+uploads
+.key
 *.mo
