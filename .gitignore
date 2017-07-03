@@ -6,5 +6,5 @@ flask
 backup
 tmp
 uploads
-.key
+*.key
 *.mo
