@@ -17,10 +17,6 @@ def is_date(string):
 def cbt(fileloc):
     #read current file directory
     import codecs
-    '''
-    wk_dir = os.path.dirname(os.path.realpath('__file__'))
-    filename = os.path.join(wk_dir, 'print_transcript_page.htm')
-    '''
     filename=fileloc
     html=codecs.open(filename, 'r', 'windows-1252')
 
@@ -103,6 +99,9 @@ def cbt(fileloc):
             else:
                 inside=args.split(' ')
                 not_inside=['']
+        else:
+            not_inside=''
+            inside=''
 
         index=[]
         for i in range(len(cbt)):
@@ -113,9 +112,10 @@ def cbt(fileloc):
                 if all(x in cbt[i] for x in inside) == True and any(x in cbt[i] for x in not_inside) == False:
                     index.append(i)
         if len(index)==0:
-            print("Not found")
+            #print("Not found")
+            pass #do nothing
         elif len(index)>1:
-            print("Found multiples")
+            #print("Found multiples")
             dates=[]
             cbts=[]
             for i in index:
@@ -128,7 +128,7 @@ def cbt(fileloc):
                     index=i
             setattr(m,head,dates[index])
         else:
-            print("Found 1")
+            #print("Found 1")
             setattr(m,head,date[index[0]])
 
     db.session.commit()

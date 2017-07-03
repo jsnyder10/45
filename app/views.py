@@ -111,11 +111,11 @@ def mobility_backup():
                 for head in header:
                     columnC=columnC+1
                     ws.cell(column=columnC, row=row, value=getattr(user,head.name))
-            wb.save("backups/mobility@"+str(datetime.now())+".xlsx")
+            wb.save("backup/mobility@"+str(datetime.now())+".xlsx")
             flash("Backup "+str(datetime.now())+".xlsx saved")
         elif request.form['submit']=='RestoreFromBackup':
             import os
-            files=os.listdir("backups")
+            files=os.listdir("backup")
             dates=[]
             for date in files:
                 dates.append(date.split('@')[1])

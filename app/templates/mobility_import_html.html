@@ -3,6 +3,7 @@
 {% block mobility %}
 <h1>Browse for HTML files here</h1>
 <div class="well"
+	<form>
 	<form class="form-horizontal" action ="{{ url_for('uploader') }}" method = "POST" enctype = "multipart/form-data">
 		<input type = "file" name = "file" />
 		<input type = "submit"/>

@@ -4,7 +4,7 @@ from flask.json import JSONEncoder
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_mail import Mail
-from flask_babel import Babel, lazy_gettext
+from flask_babel import lazy_gettext ,Babel
 from config import basedir, MAIL_SERVER, MAIL_PORT, MAIL_USERNAME, \
     MAIL_PASSWORD, ADMINS
 from .momentjs import momentjs
