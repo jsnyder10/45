@@ -2,22 +2,9 @@ from hashlib import md5
 import re
 from app import db
 from app import app
-from config import WHOOSH_ENABLED
 from passlib.apps import custom_app_context as pwd_context
 import datetime
 from dateutil.parser import parse
-#from datetime import datetime
-
-#not sure how he imported sql alchemy at all so added this one
-#from sqlalchemy.orm import relationship
-
-import sys
-if sys.version_info >= (3, 0):
-    enable_search = False
-else:
-    enable_search = WHOOSH_ENABLED
-    if enable_search:
-        import flask_whooshalchemy as whooshalchemy
 
 
 followers = db.Table(
@@ -251,6 +238,3 @@ class Post(db.Model):
 
     def __repr__(self):  # pragma: no cover
         return '<Post %r>' % (self.body)
-
-if enable_search:
-    whooshalchemy.whoosh_index(app, Post)
