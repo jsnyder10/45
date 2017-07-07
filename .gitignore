@@ -3,8 +3,5 @@
 app.db
 search.db
 flask
-backup
-tmp
-uploads
 *.key
 *.mo

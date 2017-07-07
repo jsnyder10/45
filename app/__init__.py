@@ -85,7 +85,7 @@ if os.environ.get('HEROKU') is not None:
     stream_handler = logging.StreamHandler()
     app.logger.addHandler(stream_handler)
     app.logger.setLevel(logging.INFO)
-    app.logger.info('microblog startup')
+    app.logger.info('45 startup')
 
 app.jinja_env.globals['momentjs'] = momentjs
 

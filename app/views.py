@@ -475,29 +475,6 @@ def after_request(response):
                  query.context))
     return response
 
-'''
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    form = RegistrationForm()
-    if request.method == 'POST' and form.validate():
-        if User.query.filter_by(username=form.username.data).first() == None:
-            user = User(username=form.username.data)
-            user.email = form.email.data
-            user.hash_password(form.password.data)
-            db.session.add(user)
-            # add username to Mobility data base
-            userM=Mobility(username=form.username.data)
-            db.session.add(userM)
-            # make the user follow him/herself
-            db.session.add(user.follow(user))
-            db.session.commit()
-            flash('Thanks for registering')
-            return redirect(url_for('login'))
-        else:
-            flash('Username already exists')
-            return render_template('register.html', form=form)
-    return render_template('register.html', form=form)
-'''
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
