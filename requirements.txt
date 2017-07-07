@@ -1,5 +1,4 @@
 appdirs==1.4.3
-asn1crypto==0.22.0
 Babel==2.4.0
 beautifulsoup4==4.6.0
 blinker==1.4
@@ -11,14 +10,12 @@ decorator==4.0.11
 enum34==1.1.6
 et-xmlfile==1.0.1
 Flask==0.12.2
-Flask-AlchemyDumps==0.0.10
 Flask-Babel==0.11.2
 Flask-Login==0.4.0
 Flask-Mail==0.9.1
 Flask-OpenID==1.2.5
 Flask-Script==2.0.5
 Flask-SQLAlchemy==2.2
-Flask-WhooshAlchemy==0.56
 Flask-WTF==0.14.2
 flipflop==1.0
 guess-language==0.2
@@ -49,7 +46,6 @@ Tempita==0.5.2
 Unipath==1.1
 validators==0.11.3
 Werkzeug==0.12.2
-Whoosh==2.7.4
 WTForms==2.1
 WTForms-Alchemy==0.16.2
 WTForms-Components==0.10.3
