@@ -19,6 +19,7 @@ Flask-SQLAlchemy==2.2
 Flask-WTF==0.14.2
 flipflop==1.0
 guess-language==0.2
+gunicorn==19.7.1
 idna==2.5
 infinity==1.4
 intervals==0.8.0
