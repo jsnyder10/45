@@ -65,7 +65,7 @@ u=models.Rules(name='free_ex_of_religion_cbt',rule='1')
 db.session.add(u)
 
 v=models.Rules(name='sere_100_cst_cbt',rule='1')
-db.session.add(v)not_inside
+db.session.add(v)
 
 w=models.Rules(name='loac_cbt',rule='1')
 db.session.add(w)
