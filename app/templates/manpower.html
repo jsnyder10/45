@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>{{ _('Welcome to Manpower, %(username)s!', username=g.user.username) }}</h1>
+    <h1>{{ 'Welcome to Manpower, '+g.user.username }}</h1>
     {% if g.user.manpower_admin %}
     <div class="well">
          <form class="form-horizontal" action="" method="post" name="edit">

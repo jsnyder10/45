@@ -36,11 +36,6 @@ mail = Mail(app)
 #Babel
 babel = Babel(app)
 
-#Alchemy dumps ie backup database
-# init Alchemy Dumps
-#alchemydumps = AlchemyDumps(app, db)
-#manager.add_command('alchemydumps', AlchemyDumpsCommand)
-
 
 class CustomJSONEncoder(JSONEncoder):
     """This class adds support for lazy translation texts to Flask's

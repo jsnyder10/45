@@ -1,8 +1,13 @@
 Initial Deploy
-pip install virtualenv
+sudo apt-get install python-setuptools
+sudo easy_install pip
+sudo pip install virtualenv
 virtualenv flask
+sudo apt-get install build-essential libssl-dev libffi-dev python-dev #if cryptography fails to install
 flask/bin/pip install -r requirements.txt
 ./db_create.py
+
+source env/bin/activate
 
 chmod a+x app.py
 
@@ -10,36 +15,11 @@ $ mkdir new_project
 $ cd new_project
 $ virtualenv --no-site-packages env
 
-source env/bin/activate
-
-dependencies
-flask/bin/pip install flask
-flask/bin/pip install flask-login
-flask/bin/pip install flask-openid
-flask/bin/pip install flask-mail
-flask/bin/pip install flask-sqlalchemy
-flask/bin/pip install sqlalchemy-migrate
-flask/bin/pip install flask-whooshalchemy
-flask/bin/pip install flask-wtf
-flask/bin/pip install flask-babel
-flask/bin/pip install guess_language
-flask/bin/pip install flipflop
-flask/bin/pip install coverage
-flask/bin/pip install passlib
-flask/bin/pip install python-dateutil
-flask/bin/pip install beautifulsoup4
-flask/bin/pip install Flask-AlchemyDumps
-Maybe need
-flask/bin/pip install sqlalchemy-migrate
-flask/bin/pip install openpyxl
-
 sudo apt-get install libssl-dev
 flask/bin/pip install pyopenssl
 
 config.py
 SQLALCHEMY_TRACK_MODIFICATIONS = False
-
-disabled last 2 lines of code in models for search, not sure why this causes a bug
 
 edited this as it says to
 /home/jsnyder10/Documents/45/flask/local/lib/python2.7/site-packages/flask_whooshalchemy.py:18: ExtDeprecationWarning: Importing flask.ext.sqlalchemy is deprecated, use flask_sqlalchemy instead.

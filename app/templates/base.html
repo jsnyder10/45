@@ -38,10 +38,10 @@
           <div class="collapse navbar-collapse" id="navbar">
             {% if current_user.is_authenticated %}
             <ul class="nav navbar-nav">
-              <li><a href="{{ url_for('manpower') }}">{{ _('Manpower') }}</a></li>
-              <li><a href="{{ url_for('mobility') }}">{{ _('Mobility') }}</a></li>
-              <li><a href="{{ url_for('user', username=g.user.username) }}">{{ _('Your Profile') }}</a></li>
-              <li><a href="{{ url_for('logout') }}">{{ _('Logout') }}</a></li>
+              <li><a href="{{ url_for('manpower') }}">{{ ('Manpower') }}</a></li>
+              <li><a href="{{ url_for('mobility') }}">{{ ('Mobility') }}</a></li>
+              <li><a href="{{ url_for('user', username=g.user.username) }}">{{ ('Your Profile') }}</a></li>
+              <li><a href="{{ url_for('logout') }}">{{ ('Logout') }}</a></li>
             </ul>
             {% else %}
             <ul class="nav navbar-nav navbar-right">

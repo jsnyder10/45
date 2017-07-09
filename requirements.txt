@@ -5,17 +5,18 @@ blinker==1.4
 cffi==1.10.0
 click==6.7
 coverage==4.4.1
-cryptography==1.8.1
 decorator==4.0.11
 enum34==1.1.6
 et-xmlfile==1.0.1
 Flask==0.12.2
+Flask-AlchemyDumps==0.0.10
 Flask-Babel==0.11.2
 Flask-Login==0.4.0
 Flask-Mail==0.9.1
 Flask-OpenID==1.2.5
 Flask-Script==2.0.5
 Flask-SQLAlchemy==2.2
+Flask-WhooshAlchemy==0.56
 Flask-WTF==0.14.2
 flipflop==1.0
 guess-language==0.2
@@ -32,6 +33,7 @@ openpyxl==2.4.8
 packaging==16.8
 passlib==1.7.1
 pbr==3.0.0
+psycopg2==2.7.1
 pycparser==2.17
 pyOpenSSL==17.0.0
 pyparsing==2.2.0
