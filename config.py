@@ -26,10 +26,10 @@ DATABASE_QUERY_TIMEOUT = 0.5
 ALLOWED_EXTENSIONS = set(['html', 'htm', 'xlsx'])
 
 # email server
-MAIL_SERVER = ''  # your mailserver
-MAIL_PORT = 25
+MAIL_SERVER = 'smtp.gmail.com'  # your mailserver
+MAIL_PORT = 465
 MAIL_USE_TLS = False
-MAIL_USE_SSL = False
+MAIL_USE_SSL = True
 MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
 MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 

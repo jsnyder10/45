@@ -7,6 +7,8 @@ sudo apt-get install build-essential libssl-dev libffi-dev python-dev #if crypto
 flask/bin/pip install -r requirements.txt
 ./db_create.py
 
+jsnyderserver10@gmail.com
+
 source env/bin/activate
 
 chmod a+x app.py
